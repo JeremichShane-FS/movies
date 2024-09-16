@@ -1,0 +1,40 @@
+@mixin transition($property: all, $duration: 0.45s, $ease: cubic-bezier(0.65, 0, 0.076, 1)) {
+  transition: $property $duration $ease;
+}
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone-xs {
+    @media only screen and (max-width: 25em) {
+      @content;
+    } //400px
+  }
+  @if $breakpoint == phone-s {
+    @media only screen and (max-width: 28.125em) {
+      @content;
+    } //450px
+  }
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 44.125em) {
+      @content;
+    } //706px
+  }
+  @if $breakpoint == tab-port {
+    @media only screen and (max-width: 56.25em) {
+      @content;
+    } //900px
+  }
+  @if $breakpoint == tab-land {
+    @media only screen and (max-width: 75em) {
+      @content;
+    } //1200px
+  }
+  @if $breakpoint == desktop {
+    @media only screen and (min-width: 112.55em) {
+      @content;
+    } //1800px
+  } @else if $breakpoint {
+    @media only screen and (min-width: $breakpoint) {
+      @content;
+    }
+  }
+}

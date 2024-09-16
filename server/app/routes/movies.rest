@@ -1,0 +1,27 @@
+GET http://localhost:4000/api/v1/movies
+
+###
+GET http://localhost:4000/api/v1/movies/66e8be62cd4489301113b9b0
+
+###
+POST http://localhost:4000/api/v1/movies/
+Content-Type: application/json
+
+{
+  "title": "Blade",
+  "genre": "Horror, Action",
+  "releaseYear": 1998,
+  "description": "The Daywalker known as \"Blade\" - a half-vampire, half-mortal man - becomes the protector of humanity against an underground army of vampires.",
+  "poster": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/oWT70TvbsmQaqyphCZpsnQR7R32.jpg"
+}
+
+###
+PUT http://localhost:4000/api/v1/movies/66e8be62cd4489301113b9b0
+Content-Type: application/json
+
+{
+  "genre": "Horror, Action"
+}
+
+###
+DELETE http://localhost:4000/api/v1/movies/66e8bc677cfa6206e88217a2
