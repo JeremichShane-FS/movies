@@ -6,10 +6,12 @@ import { DASHBOARD } from "../../constants/paths";
 
 const AddMovie = () => {
   const navigate = useNavigate();
+  const { refreshMovies } = useContext(MoviesContext);
 
   const handleSubmit = async formData => {
     try {
       await API.addMovie(formData);
+      refreshMovies();
       navigate(DASHBOARD);
     } catch (err) {
       console.error(`Error: ${err.message}`);
