@@ -20,7 +20,7 @@ export const getMovieById = (req, res) => {
   res.status(200).json({ status: true, data: res.movie });
 };
 
-export const createMovie = async (req, res) => {
+export const addMovie = async (req, res) => {
   const movie = new Movie({
     title: req.body.title,
     genre: req.body.genre,

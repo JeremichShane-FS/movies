@@ -1,3 +1,4 @@
+import { Home } from "../pages";
 import Footer from "./footer/Footer";
 import Header from "./header/Header";
 
@@ -6,7 +7,7 @@ const index = () => {
     <>
       <Header />
       <main>
-        <h1>Main Content</h1>
+        <Home />
       </main>
       <Footer />
     </>

@@ -1,6 +1,6 @@
 import express from "express";
 import {
-  createMovie,
+  addMovie,
   deleteMovie,
   getAllMovies,
   getMovieById,
@@ -12,7 +12,7 @@ const router = express.Router();
 
 router.get("/", getAllMovies);
 router.get("/:id", getMovie, getMovieById);
-router.post("/", createMovie);
+router.post("/", addMovie);
 router.put("/:id", getMovie, updateMovie);
 router.delete("/:id", getMovie, deleteMovie);
 
