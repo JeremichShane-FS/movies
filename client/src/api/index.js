@@ -1,9 +1,9 @@
-import { API_URL } from "../constants/urls";
+import { API_BASE } from "../constants/urls";
 
 const API = Object.create(null);
 
 API.addMovie = async movieData => {
-  const res = await fetch(`${API_URL}/movies`, {
+  const res = await fetch(`${API_BASE}/movies`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -19,7 +19,7 @@ API.addMovie = async movieData => {
 };
 
 API.deleteMovie = async id => {
-  const res = await fetch(`${API_URL}/movies/${id}`, {
+  const res = await fetch(`${API_BASE}/movies/${id}`, {
     method: "DELETE",
   });
 
@@ -31,7 +31,7 @@ API.deleteMovie = async id => {
 };
 
 API.updateMovie = async (id, movieData) => {
-  const res = await fetch(`${API_URL}/movies/${id}`, {
+  const res = await fetch(`${API_BASE}/movies/${id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
