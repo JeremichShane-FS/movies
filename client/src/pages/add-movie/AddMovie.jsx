@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AddForm } from "../../components";
+import { MoviesContext } from "../../context/MoviesContext";
 
 import API from "../../api";
 import { DASHBOARD } from "../../constants/paths";
