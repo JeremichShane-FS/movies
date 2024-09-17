@@ -1,7 +1,11 @@
 {
   "rewrites": [
     {
-      "destination": "/",
+      "destination": "https://movies-e6nm.onrender.com/api/v1/$1",
+      "source": "/api/v1/(.*)"
+    },
+    {
+      "destination": "/index.html",
       "source": "/(.*)"
     }
   ]
