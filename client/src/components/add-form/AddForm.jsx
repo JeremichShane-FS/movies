@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./AddForm.scss";
 
 const AddForm = ({ initialData, onSubmit, buttonText }) => {
   const [formData, setFormData] = useState({
@@ -29,9 +30,9 @@ const AddForm = ({ initialData, onSubmit, buttonText }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Title</label>
+    <form onSubmit={handleSubmit} className="add-form">
+      <div className="add-form__group">
+        <label className="add-form__label">Title</label>
         <input
           type="text"
           name="title"
@@ -39,14 +40,22 @@ const AddForm = ({ initialData, onSubmit, buttonText }) => {
           onChange={handleChange}
           required
           maxLength="100"
+          className="add-form__input"
         />
       </div>
-      <div>
-        <label>Genre</label>
-        <input type="text" name="genre" value={formData.genre} onChange={handleChange} required />
+      <div className="add-form__group">
+        <label className="add-form__label">Genre</label>
+        <input
+          type="text"
+          name="genre"
+          value={formData.genre}
+          onChange={handleChange}
+          required
+          className="add-form__input"
+        />
       </div>
-      <div>
-        <label>Release Year</label>
+      <div className="add-form__group">
+        <label className="add-form__label">Release Year</label>
         <input
           type="number"
           name="releaseYear"
@@ -55,23 +64,33 @@ const AddForm = ({ initialData, onSubmit, buttonText }) => {
           required
           min="1900"
           max={new Date().getFullYear()}
+          className="add-form__input"
         />
       </div>
-      <div>
-        <label>Description</label>
+      <div className="add-form__group">
+        <label className="add-form__label">Description</label>
         <textarea
           name="description"
           value={formData.description}
           onChange={handleChange}
           required
           maxLength="1000"
+          className="add-form__textarea"
         />
       </div>
-      <div>
-        <label>Poster URL</label>
-        <input type="url" name="poster" value={formData.poster} onChange={handleChange} />
+      <div className="add-form__group">
+        <label className="add-form__label">Poster URL</label>
+        <input
+          type="url"
+          name="poster"
+          value={formData.poster}
+          onChange={handleChange}
+          className="add-form__input"
+        />
       </div>
-      <button type="submit">{buttonText}</button>
+      <button type="submit" className="add-form__button">
+        {buttonText}
+      </button>
     </form>
   );
 };

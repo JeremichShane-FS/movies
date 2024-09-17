@@ -1,21 +1,10 @@
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import { ADD_MOVIE, DASHBOARD, HOME, MOVIE } from "./constants/paths";
-import Layout from "./layout";
-import { AddMovie, Dashboard, MovieDetails } from "./pages";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { routes } from "./routes";
 
-function App() {
-  return (
-    <>
-      <Router>
-        <Routes>
-          <Route path={ADD_MOVIE} element={<AddMovie />} />
-          <Route path={MOVIE} element={<MovieDetails />} />
-          <Route path={DASHBOARD} element={<Dashboard />} />
-          <Route path={HOME} element={<Layout />} />
-        </Routes>
-      </Router>
-    </>
-  );
-}
+const router = createBrowserRouter(routes);
+
+const App = () => {
+  return <RouterProvider router={router} fallbackElement={<p>Loading...</p>} />;
+};
 
 export default App;

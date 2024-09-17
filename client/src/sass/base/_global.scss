@@ -1,4 +1,5 @@
 @use "colors" as *;
+@use "typography" as *;
 
 /* Remove default margin */
 *,
@@ -16,6 +17,14 @@ html {
 
 body {
   background-color: $background-color;
+  font-family: $font-primary;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
 }
 
 code {
@@ -43,4 +52,16 @@ blockquote {
   padding: 0 0 0 1.25rem;
   margin: 0px;
   font-size: 1.333rem;
+}
+
+main {
+  flex: 1;
+  max-width: 75em;
+  width: 100%;
+  margin: 0 auto;
+  align-content: center;
+
+  @media (max-width: 75em) {
+    padding: 3rem;
+  }
 }

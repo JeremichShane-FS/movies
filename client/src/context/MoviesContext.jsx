@@ -23,7 +23,7 @@ export const MoviesProvider = ({ children }) => {
     try {
       const response = await fetch(`${API_BASE}/movies`);
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        throw new Error(`HTTP Error status: ${response.status}`);
       }
       const data = await response.json();
       console.log(data);

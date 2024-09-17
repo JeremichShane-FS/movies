@@ -1,7 +1,7 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
-import API from "../../api";
 import { AddForm } from "../../components";
+
+import API from "../../api";
 import { DASHBOARD } from "../../constants/paths";
 
 const AddMovie = () => {
@@ -11,8 +11,8 @@ const AddMovie = () => {
     try {
       await API.addMovie(formData);
       navigate(DASHBOARD);
-    } catch (error) {
-      console.error("Failed to add movie:", error);
+    } catch (err) {
+      console.error(`Error: ${err.message}`);
     }
   };
 

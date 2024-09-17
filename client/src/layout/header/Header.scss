@@ -1,2 +1,25 @@
+@use "../../sass/base/" as *;
+
 .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: $black;
+  color: $white;
+
+  &__link {
+    color: $white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+  }
+
+  &__logo-container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo {
+    padding: 0.333rem;
+  }
 }

@@ -1,9 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import API from "../../api";
-import { AddForm } from "../../components"; // Updated import
-import { DASHBOARD } from "../../constants/paths";
+import { AddForm } from "../../components";
 import { MoviesContext } from "../../context/MoviesContext";
+
+import API from "../../api";
+import { DASHBOARD } from "../../constants/paths";
+import "./MovieDetails.scss";
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -32,8 +34,8 @@ const MovieDetails = () => {
         prevState.map(movie => (movie._id === id ? { ...movie, ...formData } : movie))
       );
       setIsEditing(false);
-    } catch (error) {
-      console.error("Failed to update movie:", error);
+    } catch (err) {
+      console.error("Failed to update movie:", err);
     }
   };
 
@@ -42,8 +44,8 @@ const MovieDetails = () => {
       await API.deleteMovie(id);
       setMovies(prevState => prevState.filter(movie => movie._id !== id));
       navigate(DASHBOARD);
-    } catch (error) {
-      console.error("Failed to delete movie:", error);
+    } catch (err) {
+      console.error("Failed to delete movie:", err);
     }
   };
 
@@ -52,16 +54,36 @@ const MovieDetails = () => {
   }
 
   return (
-    <div>
-      <h1>{movie.title}</h1>
-      <p>{movie.description}</p>
-      <button onClick={handleDelete}>Delete Movie</button>
-      <button onClick={handleEdit}>Edit Movie</button>
-      <Link to={DASHBOARD}>Back to Dashboard</Link>
-
-      {isEditing && (
-        <AddForm initialData={movie} onSubmit={handleSubmit} buttonText="Save Changes" />
-      )}
+    <div className="movie-details">
+      <img src={movie.poster} alt={`${movie.title} poster`} className="movie-details__poster" />
+      <div className="movie-details__content">
+        <h1 className="movie-details__title">{movie.title}</h1>
+        <p className="movie-details__genre">{movie.genre}</p>
+        <p className="movie-details__release-year">{movie.releaseYear}</p>
+        <p className="movie-details__description">{movie.description}</p>
+        <div className="movie-details__actions">
+          <button onClick={handleDelete} className="movie-details__button">
+            Delete Movie
+          </button>
+          {isEditing ? (
+            <button
+              onClick={handleCancel}
+              className="movie-details__button movie-details__button--cancel">
+              Cancel
+            </button>
+          ) : (
+            <button onClick={handleEdit} className="movie-details__button">
+              Edit Movie
+            </button>
+          )}
+          <Link to={DASHBOARD} className="movie-details__link">
+            Back to Dashboard
+          </Link>
+        </div>
+        {isEditing && (
+          <AddForm initialData={movie} onSubmit={handleSubmit} buttonText="Save Changes" />
+        )}
+      </div>
     </div>
   );
 };
