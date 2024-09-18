@@ -21,10 +21,10 @@ const AddMovie = () => {
   };
 
   return (
-    <div>
-      <h1>Add Movie</h1>
+    <section className="add-movie">
+      <h1 className="add-movie__title">Add Movie</h1>
       <AddForm initialData={null} onSubmit={handleSubmit} buttonText="Add Movie" />
-    </div>
+    </section>
   );
 };
 

@@ -9,7 +9,7 @@ const Dashboard = () => {
   const { movies, loading, error } = useContext(MoviesContext);
 
   return (
-    <div className="dashboard">
+    <section className="dashboard">
       <header className="dashboard__header">
         <div className="dashboard__title-container">
           <h1 className="dashboard__title">Movies Dashboard</h1>
@@ -45,7 +45,7 @@ const Dashboard = () => {
           </ul>
         )}
       </main>
-    </div>
+    </section>
   );
 };
 

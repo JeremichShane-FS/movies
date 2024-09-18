@@ -54,13 +54,24 @@ const MovieDetails = () => {
   }
 
   return (
-    <div className="movie-details">
+    <section className="movie-details">
       <img src={movie.poster} alt={`${movie.title} poster`} className="movie-details__poster" />
       <div className="movie-details__content">
         <h1 className="movie-details__title">{movie.title}</h1>
-        <p className="movie-details__genre">{movie.genre}</p>
-        <p className="movie-details__release-year">{movie.releaseYear}</p>
-        <p className="movie-details__description">{movie.description}</p>
+        <dl className="movie-details__list">
+          <div className="movie-details__item">
+            <dt className="movie-details__term visually-hidden">Genre:</dt>
+            <dd className="movie-details__description">{movie.genre}</dd>
+          </div>
+          <div className="movie-details__item">
+            <dt className="movie-details__term visually-hidden">Release Year:</dt>
+            <dd className="movie-details__description">{movie.releaseYear}</dd>
+          </div>
+          <div className="movie-details__item">
+            <dt className="movie-details__term visually-hidden">Description:</dt>
+            <dd className="movie-details__description">{movie.description}</dd>
+          </div>
+        </dl>
         <div className="movie-details__actions">
           <button onClick={handleDelete} className="movie-details__button">
             Delete Movie
@@ -84,7 +95,7 @@ const MovieDetails = () => {
           <AddForm initialData={movie} onSubmit={handleSubmit} buttonText="Save Changes" />
         )}
       </div>
-    </div>
+    </section>
   );
 };
 

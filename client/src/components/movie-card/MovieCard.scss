@@ -2,40 +2,34 @@
 
 .movie-card {
   background-color: $white;
-  border-radius: 8px;
+  border-radius: 10px;
   box-shadow: 0 4px 8px rgba($black, 0.1);
   overflow: hidden;
-  transition: transform 0.2s;
-  width: 100%;
-  max-width: 18.75rem;
-  min-width: 18.75rem;
-  margin: 1rem;
+  transition: all 0.2s;
 
   &:hover {
     transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba($black, 0.2);
   }
 
-  &__poster {
-    width: 100%;
-    height: auto;
+  &__details {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    line-height: 0.5;
   }
 
-  &__content {
-    padding: 1rem;
+  &__item {
+    margin: 0.5rem 0;
   }
 
   &__title {
-    font-size: 1.5rem;
-    margin: 0.5rem 0;
+    font-weight: bold;
+    color: $black;
   }
 
-  &__genre,
-  &__release-year,
-  &__description {
-    margin: 0.5rem 0;
-  }
-
-  &__description {
-    color: $gray-700;
+  &__release-year {
+    font-size: 1rem;
+    color: $gray-600;
   }
 }

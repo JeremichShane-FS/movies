@@ -1,4 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
+import { MOVIES } from "../constants/paths";
 import { API_BASE } from "../constants/urls";
 
 export const MoviesContext = createContext();
@@ -21,7 +22,7 @@ export const MoviesProvider = ({ children }) => {
   const getMovies = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`${API_BASE}/movies`);
+      const response = await fetch(`${API_BASE}${MOVIES}`);
       if (!response.ok) {
         throw new Error(`HTTP Error status: ${response.status}`);
       }

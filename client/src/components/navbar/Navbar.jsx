@@ -4,19 +4,17 @@ import "./Navbar.scss";
 
 const Navbar = () => {
   return (
-    <div className="navbar">
-      <ul className="navbar__list">
-        <Link to={ROOT}>
-          <li className="navbar__item">Home</li>
-        </Link>
-        <Link to={MOVIES}>
-          <li className="navbar__item">Movies</li>
-        </Link>
-        <Link to={DASHBOARD}>
-          <li className="navbar__item">Dashboard</li>
-        </Link>
-      </ul>
-    </div>
+    <nav className="navbar">
+      <Link to={ROOT} className="navbar__item">
+        Home
+      </Link>
+      <Link to={MOVIES} className="navbar__item">
+        Movies
+      </Link>
+      <Link to={DASHBOARD} className="navbar__item">
+        Dashboard
+      </Link>
+    </nav>
   );
 };
 export default Navbar;

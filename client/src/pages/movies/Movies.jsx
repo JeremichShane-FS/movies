@@ -8,9 +8,9 @@ const Movies = () => {
   const { movies } = useContext(MoviesContext);
 
   return (
-    <div className="movies">
+    <section className="movies">
       <h1 className="movies__title">Movies in database:</h1>
-      <ul className="movies__list">
+      <div className="movies__list">
         {movies.map(movie => (
           <Link to={`/movie/${movie._id}`} key={movie._id}>
             <MovieCard
@@ -22,8 +22,8 @@ const Movies = () => {
             />
           </Link>
         ))}
-      </ul>
-    </div>
+      </div>
+    </section>
   );
 };
 

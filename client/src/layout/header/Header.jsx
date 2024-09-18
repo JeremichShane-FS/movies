@@ -7,7 +7,7 @@ import "./Header.scss";
 
 const Header = () => {
   return (
-    <div className="header">
+    <header className="header">
       <Link to={ROOT} className="header__link">
         <div className="header__logo-container">
           <img src={Logo} alt="Logo" className="header__logo" />
@@ -15,7 +15,7 @@ const Header = () => {
         </div>
       </Link>
       <Navbar />
-    </div>
+    </header>
   );
 };
 export default Header;
