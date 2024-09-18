@@ -87,9 +87,6 @@ const MovieDetails = () => {
               Edit Movie
             </button>
           )}
-          <Link to={DASHBOARD} className="movie-details__link">
-            Back to Dashboard
-          </Link>
         </div>
         {isEditing && (
           <AddForm initialData={movie} onSubmit={handleSubmit} buttonText="Save Changes" />
