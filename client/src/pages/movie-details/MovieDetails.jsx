@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { AddForm } from "../../components";
+import { AddForm, Button } from "../../components";
 import { MoviesContext } from "../../context/MoviesContext";
 
 import API from "../../api";
@@ -73,19 +73,17 @@ const MovieDetails = () => {
           </div>
         </dl>
         <div className="movie-details__actions">
-          <button onClick={handleDelete} className="movie-details__button">
+          <Button onClick={handleDelete} className="button">
             Delete Movie
-          </button>
+          </Button>
           {isEditing ? (
-            <button
-              onClick={handleCancel}
-              className="movie-details__button movie-details__button--cancel">
+            <button onClick={handleCancel} className="button button--cancel">
               Cancel
             </button>
           ) : (
-            <button onClick={handleEdit} className="movie-details__button">
+            <Button onClick={handleEdit} className="button">
               Edit Movie
-            </button>
+            </Button>
           )}
         </div>
         {isEditing && (

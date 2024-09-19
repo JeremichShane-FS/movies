@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Button from "../button/Button";
 import "./AddForm.scss";
 
 const AddForm = ({ initialData, onSubmit, buttonText }) => {
@@ -32,9 +33,12 @@ const AddForm = ({ initialData, onSubmit, buttonText }) => {
   return (
     <form onSubmit={handleSubmit} className="add-form">
       <div className="add-form__group">
-        <label className="add-form__label">Title</label>
+        <label htmlFor="title" className="add-form__label">
+          Title
+        </label>
         <input
           type="text"
+          id="title"
           name="title"
           value={formData.title}
           onChange={handleChange}
@@ -44,9 +48,12 @@ const AddForm = ({ initialData, onSubmit, buttonText }) => {
         />
       </div>
       <div className="add-form__group">
-        <label className="add-form__label">Genre</label>
+        <label htmlFor="genre" className="add-form__label">
+          Genre
+        </label>
         <input
           type="text"
+          id="genre"
           name="genre"
           value={formData.genre}
           onChange={handleChange}
@@ -55,9 +62,12 @@ const AddForm = ({ initialData, onSubmit, buttonText }) => {
         />
       </div>
       <div className="add-form__group">
-        <label className="add-form__label">Release Year</label>
+        <label htmlFor="releaseYear" className="add-form__label">
+          Release Year
+        </label>
         <input
           type="number"
+          id="releaseYear"
           name="releaseYear"
           value={formData.releaseYear}
           onChange={handleChange}
@@ -68,8 +78,11 @@ const AddForm = ({ initialData, onSubmit, buttonText }) => {
         />
       </div>
       <div className="add-form__group">
-        <label className="add-form__label">Description</label>
+        <label htmlFor="description" className="add-form__label">
+          Description
+        </label>
         <textarea
+          id="description"
           name="description"
           value={formData.description}
           onChange={handleChange}
@@ -79,18 +92,21 @@ const AddForm = ({ initialData, onSubmit, buttonText }) => {
         />
       </div>
       <div className="add-form__group">
-        <label className="add-form__label">Poster URL</label>
+        <label htmlFor="poster" className="add-form__label">
+          Poster URL
+        </label>
         <input
           type="url"
+          id="poster"
           name="poster"
           value={formData.poster}
           onChange={handleChange}
           className="add-form__input"
         />
       </div>
-      <button type="submit" className="add-form__button">
+      <Button type="submit" className="button">
         {buttonText}
-      </button>
+      </Button>
     </form>
   );
 };

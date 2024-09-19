@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { MoviesContext } from "../../context/MoviesContext";
 
+import { Button } from "../../components";
 import { ADD_MOVIE, ROOT } from "../../constants/paths";
 import "./Dashboard.scss";
 
@@ -20,7 +21,7 @@ const Dashboard = () => {
             Home
           </Link>
           <Link to={ADD_MOVIE} className="dashboard__link">
-            <button className="dashboard__button">Add Movie</button>
+            <Button className="dashboard__button">Add Movie</Button>
           </Link>
         </nav>
       </header>

@@ -1,0 +1,25 @@
+@use "../../sass/base/" as *;
+
+.button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  color: $white;
+  background-color: $primary;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: $blue;
+  }
+
+  &--cancel {
+    background-color: $cancel-color;
+
+    &:hover {
+      background-color: $cancel-hover-color;
+    }
+  }
+}
