@@ -27,7 +27,6 @@ export const MoviesProvider = ({ children }) => {
         throw new Error(`HTTP Error status: ${response.status}`);
       }
       const data = await response.json();
-      console.log(data);
       if (data.status) {
         setMovies(data.data);
       } else {
