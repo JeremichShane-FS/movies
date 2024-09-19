@@ -29,9 +29,9 @@ const Dashboard = () => {
       </header>
       <main className="dashboard__main">
         {loading ? (
-          <p className="dashboard__loading">Loading...</p>
+          <p className="loading">Loading...</p>
         ) : error ? (
-          <p className="dashboard__error">{error}</p>
+          <p className="error">{error}</p>
         ) : (
           <ul className="dashboard__list">
             {sortedMovies.map(movie => (

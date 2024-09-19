@@ -74,3 +74,9 @@ main {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
 }
+
+.loading,
+.error {
+  font-size: 1.2rem;
+  color: $gray-600;
+}
