@@ -62,12 +62,6 @@
     box-shadow: 0 4px 8px rgba($black, 0.1);
   }
 
-  &__loading,
-  &__error {
-    font-size: 1.2rem;
-    color: $gray-600;
-  }
-
   &__list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(18.75rem, 1fr));
