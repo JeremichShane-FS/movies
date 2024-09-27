@@ -1,8 +1,10 @@
 import express from "express";
-import moviesRoutes from "./moviesRoutes.js";
+import authRouter from "./authRouter.js";
+import moviesRouter from "./moviesRouter.js";
 
 const router = express.Router();
 
-router.use("/movies", moviesRoutes);
+router.use("/movies", moviesRouter);
+router.use("/auth", authRouter);
 
 export default router;

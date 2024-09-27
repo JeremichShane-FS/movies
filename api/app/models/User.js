@@ -1,0 +1,45 @@
+import bcrypt from "bcrypt-nodejs";
+import mongoose from "mongoose";
+
+const userSchema = new mongoose.Schema({
+  email: {
+    type: String,
+    required: [true, "Email is required"],
+    unique: true,
+    lowercase: true,
+    validate: {
+      validator: function (v) {
+        const emailRegex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+        return emailRegex.test(v);
+      },
+      message: props => `${props.value} is not a valid email address`,
+    },
+  },
+  password: {
+    type: String,
+    required: [true, "Password is required"],
+    minLength: [8, "Password must be at least 8 characters"],
+  },
+  created_at: {
+    type: Date,
+    required: true,
+    default: Date.now,
+  },
+});
+
+userSchema.pre("save", next => {
+  if (user.isNew || user.isModified("password")) {
+    bcrypt.genSalt(10, (err, salt) => {
+      if (err) return next(err);
+      bcrypt.hash(user.password, salt, null, (err, hash) => {
+        if (err) return next(err);
+        user.password = hash;
+        next();
+      });
+    });
+  } else {
+    next();
+  }
+});
+
+export const User = mongoose.model("User", userSchema);

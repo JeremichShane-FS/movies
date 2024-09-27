@@ -1,7 +1,7 @@
 GET http://localhost:4000/api/v1/movies
 
 ###
-GET http://localhost:4000/api/v1/movies/66e8be62cd4489301113b9b0
+GET http://localhost:4000/api/v1/movies/66e976810b8f2e142469def3
 
 ###
 POST http://localhost:4000/api/v1/movies/
@@ -16,12 +16,12 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:4000/api/v1/movies/66e8be62cd4489301113b9b0
+PUT http://localhost:4000/api/v1/movies/66f6d6bc8ae5e4ebe7526bb2
 Content-Type: application/json
 
 {
-  "genre": "Horror, Action"
+  "title": "testing"
 }
 
 ###
-DELETE http://localhost:4000/api/v1/movies/66e8bc677cfa6206e88217a2
+DELETE http://localhost:4000/api/v1/movies/66f6d616fc2ae2499ea15df2

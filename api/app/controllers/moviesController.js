@@ -1,5 +1,7 @@
 import { Movie } from "../models/Movies.js";
 
+import { RESPONSE_MESSAGES as rm } from "../constants/responseMessages.js";
+
 export const getAllMovies = async (req, res) => {
   let query = Object.create(null);
   try {
@@ -9,10 +11,7 @@ export const getAllMovies = async (req, res) => {
       data: movies,
     });
   } catch (err) {
-    res.status(500).json({
-      status: false,
-      Error: err.message,
-    });
+    return next(err);
   }
 };
 
@@ -21,28 +20,35 @@ export const getMovieById = (req, res) => {
 };
 
 export const addMovie = async (req, res) => {
+  const { title, genre, releaseYear, description, poster } = req.body;
+
   const movie = new Movie({
-    title: req.body.title,
-    genre: req.body.genre,
-    releaseYear: req.body.releaseYear,
-    description: req.body.description,
-    poster: req.body.poster,
+    title,
+    genre,
+    releaseYear,
+    description,
+    poster,
   });
 
   try {
     await movie.save();
-    res.status(201).json({ success: true, data: movie });
+    res.status(201).json({
+      success: true,
+      message: rm.RECORD_CREATED_SUCCESSFULLY(req).replace("Record", "Movie"),
+      data: movie,
+    });
   } catch (err) {
-    res.status(400).json({ Error: err.message });
+    return next(err);
   }
 };
 
 export const updateMovie = async (req, res) => {
   const { title, genre, releaseYear, description, poster } = req.body;
+  const { id } = req.params;
 
   try {
     if (!res.movie) {
-      return res.status(404).json({ status: false, message: "Movie not found" });
+      return res.status(404).json({ status: false, message: rm.RECORD_NOT_FOUND(id) });
     }
 
     if (title) res.movie.title = title;
@@ -52,20 +58,25 @@ export const updateMovie = async (req, res) => {
     if (poster) res.movie.poster = poster;
 
     const updatedMovie = await res.movie.save();
-    res.status(200).json({ status: true, data: updatedMovie });
+    res.status(200).json({
+      status: true,
+      message: rm.RECORD_UPDATED_SUCCESSFULLY(req, id).replace("Record", "Movie"),
+      data: updatedMovie,
+    });
   } catch (err) {
-    res.status(400).json({ status: false, message: err.message });
+    return next(err);
   }
 };
 
 export const deleteMovie = async (req, res) => {
+  const { id } = req.params;
   try {
     await res.movie.deleteOne();
-    res.json({ status: true, message: "Removed movie successfully!" });
-  } catch (err) {
-    res.status(500).json({
-      status: false,
-      Error: err.message,
+    res.json({
+      status: true,
+      message: rm.RECORD_DELETED_SUCCESSFULLY(id).replace("Record", "Movie"),
     });
+  } catch (err) {
+    return next(err);
   }
 };

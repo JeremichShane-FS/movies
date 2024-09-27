@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { AddForm, Button } from "../../components";
 import { MoviesContext } from "../../context/MoviesContext";
 

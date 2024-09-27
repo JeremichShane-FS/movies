@@ -1,7 +1,7 @@
 import React from "react";
 import "./MovieCard.scss";
 
-const MovieCard = ({ title, genre, releaseYear, description, poster }) => {
+const MovieCard = ({ title, releaseYear, poster }) => {
   return (
     <article className="movie-card">
       <img src={poster} alt={`${title} poster`} className="movie-card__poster" />
