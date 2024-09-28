@@ -1,5 +1,5 @@
-import cors from "cors";
 import express from "express";
+import { appConfig } from "./config/index.js";
 import routeHandler from "./routes/index.js";
 
 import { RESPONSE_MESSAGES as rm } from "./constants/responseMessages.js";
@@ -7,8 +7,7 @@ import { handleMongooseErrors } from "./middlewares/handleMongooseErrors.js";
 
 const app = express();
 
-app.use(cors());
-app.use(express.json());
+appConfig(app);
 
 app.use("/api/v1", routeHandler);
 

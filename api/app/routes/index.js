@@ -1,10 +1,10 @@
 import express from "express";
-import authRouter from "./authRouter.js";
 import moviesRouter from "./moviesRouter.js";
+import userRouter from "./userRouter.js";
 
 const router = express.Router();
 
 router.use("/movies", moviesRouter);
-router.use("/auth", authRouter);
+router.use("/user", userRouter);
 
 export default router;

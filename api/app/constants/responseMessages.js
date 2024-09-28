@@ -11,6 +11,7 @@ export const RESPONSE_MESSAGES = {
   RECORD_UPDATED_SUCCESSFULLY: (req, id) =>
     `${req.method} - Record with id: ${id} successfully updated`,
   RECORD_DELETED_SUCCESSFULLY: id => `Record with id: ${id} deleted successfully`,
+  RECORD_FETCHED_SUCCESSFULLY: req => `${req.method} - Record fetched successfully`,
 
   // 201 status codes
   RECORD_CREATED_SUCCESSFULLY: req => `${req.method} - Record created successfully`,
@@ -27,6 +28,8 @@ export const RESPONSE_MESSAGES = {
   // 422 status codes
   VALIDATION_FAILED: "Validation failed",
   INVALID_ID_FORMAT: "Invalid ID format",
+  INVALID_EMAIL: email => `${email} is not a valid email address`,
+  INVALID_PASSWORD: "Invalid Password",
   EMAIL_PASSWORD_REQUIRED: "Email and password are required",
   EMAIL_EXISTS: "Email already exists",
 
