@@ -5,9 +5,17 @@
   },
   "scripts": {
     "install-api": "npm install --prefix api",
+<<<<<<< HEAD
     "start": "node api/server.js",
     "start:local": "node --env-file=.env api/server.js",
     "dev:api": "cd api && npx nodemon --env-file=.env server.js"
+=======
+    "build-client": "npm run build --prefix client",
+    "start": "npm start --prefix api",
+    "dev:react": "concurrently --raw \"npm run api\" \"npm run react\"",
+    "react": "cd client && npm run dev",
+    "api": "cd api && npx nodemon --env-file=.env server.js"
+>>>>>>> main
   },
   "dependencies": {
     "concurrently": "^9.0.1"
