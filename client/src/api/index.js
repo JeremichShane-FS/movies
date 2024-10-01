@@ -1,4 +1,3 @@
-import { signup } from "../../../api/app/controllers/userController";
 import { API_BASE } from "../constants/urls";
 
 const API = Object.create(null);
