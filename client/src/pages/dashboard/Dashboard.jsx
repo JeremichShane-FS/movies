@@ -11,13 +11,12 @@ import "./Dashboard.scss";
 const Dashboard = () => {
   const { movies, loading, error } = useContext(MoviesContext);
   const { currentUser } = useContext(UserContext);
-
   const sortedMovies = sortMoviesByYearAndTitle(movies);
   const getUsername = email => {
     return email ? email.split("@")[0] : "User";
   };
-
-  const username = getUsername(currentUser?.email);
+  console.log(currentUser);
+  const username = getUsername(currentUser?.user.email);
 
   return (
     <section className="dashboard">
