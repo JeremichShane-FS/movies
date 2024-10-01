@@ -15,7 +15,6 @@ const Dashboard = () => {
   const getUsername = email => {
     return email ? email.split("@")[0] : "User";
   };
-  console.log(currentUser);
   const username = getUsername(currentUser?.user.email);
 
   return (
