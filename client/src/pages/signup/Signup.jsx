@@ -1,14 +1,16 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { handleApiErrors } from "../../api/errorHandler";
 import { Button, Form } from "../../components";
 
 import { authService } from "../../api/services/auth.service";
 import { DASHBOARD } from "../../constants/paths";
+import { UserContext } from "../../context";
 import { validatePassword } from "../../utils/validatePassword";
 import "./Signup.scss";
 
 const Signup = () => {
+  const { setCurrentUser } = useContext(UserContext);
   const navigate = useNavigate();
   const [errors, setErrors] = useState({
     general: "",
@@ -56,6 +58,7 @@ const Signup = () => {
     try {
       await authService.signup(formData);
       resetForm();
+      setCurrentUser(authService.getUser());
       navigate(DASHBOARD);
     } catch (error) {
       if (error) {
