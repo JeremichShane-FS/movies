@@ -1,5 +1,12 @@
-import { MoviesProvider } from "./MoviesContext";
+import { MoviesContext, MoviesProvider } from "./MoviesContext";
+import { UserContext, UserProvider } from "./UserContext";
 
 export const AppContextProvider = ({ children }) => {
-  return <MoviesProvider>{children}</MoviesProvider>;
+  return (
+    <UserProvider>
+      <MoviesProvider>{children}</MoviesProvider>
+    </UserProvider>
+  );
 };
+
+export { MoviesContext, UserContext };

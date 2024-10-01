@@ -1,0 +1,13 @@
+@use "../../sass/base/" as *;
+
+.add-movie {
+  max-width: 37.5em;
+  margin: 2.5rem auto 0;
+
+  &__title {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    font-size: $heading-2-size;
+  }
+}

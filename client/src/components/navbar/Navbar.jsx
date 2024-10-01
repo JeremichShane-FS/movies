@@ -1,8 +1,19 @@
-import { Link } from "react-router-dom";
-import { DASHBOARD, MOVIES, ROOT } from "../../constants/paths";
+import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { DASHBOARD, LOGIN, MOVIES, ROOT, SIGNUP } from "../../constants/paths";
+import { UserContext } from "../../context/UserContext";
 import "./Navbar.scss";
 
 const Navbar = () => {
+  const { currentUser, logout, setCurrentUser } = useContext(UserContext);
+  const navigate = useNavigate();
+  console.log(currentUser);
+
+  const handleLogout = () => {
+    logout();
+    navigate(LOGIN);
+  };
+
   return (
     <nav className="navbar">
       <Link to={ROOT} className="navbar__item">
@@ -11,9 +22,25 @@ const Navbar = () => {
       <Link to={MOVIES} className="navbar__item">
         Movies
       </Link>
-      <Link to={DASHBOARD} className="navbar__item">
-        Dashboard
-      </Link>
+      {currentUser ? (
+        <>
+          <span onClick={handleLogout} className="navbar__item">
+            Logout
+          </span>
+          <Link to={DASHBOARD} className="navbar__item">
+            Dashboard
+          </Link>
+        </>
+      ) : (
+        <>
+          <Link to={LOGIN} className="navbar__item">
+            Login
+          </Link>
+          <Link to={SIGNUP} className="navbar__item">
+            Sign Up
+          </Link>
+        </>
+      )}
     </nav>
   );
 };

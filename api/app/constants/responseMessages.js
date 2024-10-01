@@ -20,6 +20,10 @@ export const RESPONSE_MESSAGES = {
   PROVIDE_DETAILS: "Missing Information:  Please provide details",
   PROVIDE_DETAILS_TO_UPDATE: "Please provide details to update",
 
+  // 401 status codes
+  UNAUTHORIZED: "Unauthorized",
+  INVALID_CREDENTIALS: "Invalid email or password",
+
   // 404 status codes
   API_NOT_FOUND: req => `${req.originalUrl} - 404 - Not Found`,
   NO_RECORDS_FOUND: "No records found",

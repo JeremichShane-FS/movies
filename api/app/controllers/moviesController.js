@@ -2,7 +2,7 @@ import { Movie } from "../models/Movies.js";
 
 import { RESPONSE_MESSAGES as rm } from "../constants/responseMessages.js";
 
-export const getAllMovies = async (req, res) => {
+export const getAllMovies = async (req, res, next) => {
   let query = Object.create(null);
   try {
     const movies = await Movie.find(query);

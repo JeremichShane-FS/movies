@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { MOVIES } from "../constants/paths";
 import { API_BASE } from "../constants/urls";
 

@@ -1,15 +1,18 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { AddForm, Button } from "../../components";
+import { Button } from "../../components";
 import { MoviesContext } from "../../context/MoviesContext";
+import { AddMovieForm } from "../../pages/add-movie/AddMovieForm";
 
 import API from "../../api";
 import { DASHBOARD } from "../../constants/paths";
+import { UserContext } from "../../context";
 import "./MovieDetails.scss";
 
 const MovieDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { currentUser } = useContext(UserContext);
   const { movies, setMovies } = useContext(MoviesContext);
   const [movie, setMovie] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
@@ -73,21 +76,25 @@ const MovieDetails = () => {
           </div>
         </dl>
         <div className="movie-details__actions">
-          <Button onClick={handleDelete} className="button">
-            Delete Movie
-          </Button>
-          {isEditing ? (
-            <button onClick={handleCancel} className="button button--cancel">
-              Cancel
-            </button>
-          ) : (
-            <Button onClick={handleEdit} className="button">
-              Edit Movie
-            </Button>
+          {currentUser && (
+            <>
+              <Button onClick={handleDelete} className="button">
+                Delete Movie
+              </Button>
+              {isEditing ? (
+                <button onClick={handleCancel} className="button button--cancel">
+                  Cancel
+                </button>
+              ) : (
+                <Button onClick={handleEdit} className="button">
+                  Edit Movie
+                </Button>
+              )}
+            </>
           )}
         </div>
         {isEditing && (
-          <AddForm initialData={movie} onSubmit={handleSubmit} buttonText="Save Changes" />
+          <AddMovieForm initialData={movie} onSubmit={handleSubmit} buttonText="Save Changes" />
         )}
       </div>
     </section>

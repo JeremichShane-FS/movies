@@ -1,10 +1,12 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { AddForm } from "../../components";
+import { withAuth } from "../../api/withAuth";
 import { MoviesContext } from "../../context/MoviesContext";
+import { AddMovieForm } from "./AddMovieForm";
 
 import API from "../../api";
 import { DASHBOARD } from "../../constants/paths";
+import "./AddMovie.scss";
 
 const AddMovie = () => {
   const navigate = useNavigate();
@@ -23,9 +25,9 @@ const AddMovie = () => {
   return (
     <section className="add-movie">
       <h1 className="add-movie__title">Add Movie</h1>
-      <AddForm initialData={null} onSubmit={handleSubmit} buttonText="Add Movie" />
+      <AddMovieForm initialData={null} onSubmit={handleSubmit} buttonText="Add Movie" />
     </section>
   );
 };
 
-export default AddMovie;
+export default withAuth(AddMovie);

@@ -1,7 +1,10 @@
 export const ADD_MOVIE = "/add-movie";
 export const DASHBOARD = "/dashboard";
-export const MOVIE_BASE = "/movie";
-export const MOVIE = id => `${MOVIE_BASE}/${id}`;
+export const LOGIN = "/login";
+export const MOVIE = id => `/movie/${id}`;
+export const MOVIE_DETAILS = "/movie/:id";
 export const MOVIES = "/movies";
 export const NOT_FOUND = "*";
 export const ROOT = "/";
+export const SIGNUP = "/signup";
+export const USER = "/user";

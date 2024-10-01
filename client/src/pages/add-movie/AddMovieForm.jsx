@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
-import Button from "../button/Button";
-import "./AddForm.scss";
+import { useEffect, useState } from "react";
+import { Button, Form } from "../../components";
 
-const AddForm = ({ initialData, onSubmit, buttonText }) => {
+export const AddMovieForm = ({ initialData, onSubmit, buttonText }) => {
   const [formData, setFormData] = useState({
     title: "",
     genre: "",
@@ -31,9 +30,9 @@ const AddForm = ({ initialData, onSubmit, buttonText }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="add-form">
-      <div className="add-form__group">
-        <label htmlFor="title" className="add-form__label">
+    <Form onSubmit={handleSubmit} className="form">
+      <div className="form__group">
+        <label htmlFor="title" className="form__label">
           Title
         </label>
         <input
@@ -44,11 +43,11 @@ const AddForm = ({ initialData, onSubmit, buttonText }) => {
           onChange={handleChange}
           required
           maxLength="100"
-          className="add-form__input"
+          className="form__input"
         />
       </div>
-      <div className="add-form__group">
-        <label htmlFor="genre" className="add-form__label">
+      <div className="form__group">
+        <label htmlFor="genre" className="form__label">
           Genre
         </label>
         <input
@@ -58,11 +57,11 @@ const AddForm = ({ initialData, onSubmit, buttonText }) => {
           value={formData.genre}
           onChange={handleChange}
           required
-          className="add-form__input"
+          className="form__input"
         />
       </div>
-      <div className="add-form__group">
-        <label htmlFor="releaseYear" className="add-form__label">
+      <div className="form__group">
+        <label htmlFor="releaseYear" className="form__label">
           Release Year
         </label>
         <input
@@ -74,11 +73,11 @@ const AddForm = ({ initialData, onSubmit, buttonText }) => {
           required
           min="1900"
           max={new Date().getFullYear()}
-          className="add-form__input"
+          className="form__input"
         />
       </div>
-      <div className="add-form__group">
-        <label htmlFor="description" className="add-form__label">
+      <div className="form__group">
+        <label htmlFor="description" className="form__label">
           Description
         </label>
         <textarea
@@ -88,11 +87,11 @@ const AddForm = ({ initialData, onSubmit, buttonText }) => {
           onChange={handleChange}
           required
           maxLength="1000"
-          className="add-form__textarea"
+          className="form__textarea"
         />
       </div>
-      <div className="add-form__group">
-        <label htmlFor="poster" className="add-form__label">
+      <div className="form__group">
+        <label htmlFor="poster" className="form__label">
           Poster URL
         </label>
         <input
@@ -101,14 +100,12 @@ const AddForm = ({ initialData, onSubmit, buttonText }) => {
           name="poster"
           value={formData.poster}
           onChange={handleChange}
-          className="add-form__input"
+          className="form__input"
         />
       </div>
       <Button type="submit" className="button">
         {buttonText}
       </Button>
-    </form>
+    </Form>
   );
 };
-
-export default AddForm;
