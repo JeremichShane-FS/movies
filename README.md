@@ -25,6 +25,7 @@ This is a full-stack movie application that allows users to sign up, log in, vie
     - [🔧 Context](#-context)
   - [🟢 Back End](#-back-end-1)
     - [🔌 API Endpoints](#-api-endpoints)
+        - [🔗 Base URL](#-base-url)
       - [👤 User Endpoints](#-user-endpoints)
       - [🎬 Movie Endpoints](#-movie-endpoints)
   - [📜 Conclusion](#-conclusion)
@@ -125,6 +126,8 @@ The back end of the application is built using Node.js and Express. It includes 
 ---
 
 ### 🔌 API Endpoints
+
+##### 🔗 Base URL
 
 - **Development**: http://localhost:4000/api/v1
 - **Production**: https://movies-e6nm.onrender.com/api/v1
