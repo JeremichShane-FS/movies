@@ -124,9 +124,9 @@ The back end of the application is built using Node.js and Express. It includes 
 
 The base URL for all endpoints is:
 
-- **Development**: <span style="color: #ffffff; background-color: #7B68EE; padding: 4px 8px; border-radius: 3px;"><a href="http://localhost:4000/api/v1/" style="color: #ffffff;">http://localhost:4000/api/v1/</a></span>
+- **Development**: <span style="color: #ffffff; background-color: #7B68EE; padding: 4px 8px; border-radius: 3px;"><a href="http://localhost:4000/api/v1" style="color: #ffffff;">http://localhost:4000/api/v1</a></span>
   <br>
-- **Production**: <span style="color: #ffffff; background-color: #7B68EE; padding: 4px 8px; border-radius: 3px;"><a href="https://your-production-url.com/api/v1/" style="color: #ffffff;">https://movies-e6nm.onrender.com/api/v1/</a></span>
+- **Production**: <span style="color: #ffffff; background-color: #7B68EE; padding: 4px 8px; border-radius: 3px;"><a href="https://movies-e6nm.onrender.com/api/v1" style="color: #ffffff;">https://movies-e6nm.onrender.com/api/v1</a></span>
 
 <br>
 
