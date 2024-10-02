@@ -132,40 +132,40 @@ The base URL for all endpoints is:
 
 #### 👤 User Endpoints
 
-- **POST /signup**: Sign up a new user.
+- <span style="color: #ffffff; background-color: #49cc90; padding: 4px 8px; border-radius: 3px; font-weight: bold;">POST</span> **/signup**: Sign up a new user.
 
   - Request body: `{ email, password }`
   - Response: `{ token, user }`
 
-- **POST /login**: Log in an existing user.
+- <span style="color: #ffffff; background-color: #49cc90; padding: 4px 8px; border-radius: 3px; font-weight: bold;">POST</span> **/login**: Log in an existing user.
 
   - Request body: `{ email, password }`
   - Response: `{ token, user }`
 
-- **GET /dashboard**: Access the user dashboard (authenticated users only).
+- <span style="color: #ffffff; background-color: #61affe; padding: 4px 8px; border-radius: 3px; font-weight: bold;">GET</span> **/dashboard**: Access the user dashboard (authenticated users only).
   - Response: `{ user, movies }`
 
 #### 🎬 Movie Endpoints
 
-- **GET /movies**: Get a list of all movies.
+- <span style="color: #ffffff; background-color: #61affe; padding: 4px 8px; border-radius: 3px; font-weight: bold;">GET</span> **/movies**: Get a list of all movies.
 
   - Response: `[ { movie1 }, { movie2 }, ... ]`
 
-- **GET /movies/:id**: Get details of a specific movie.
+- <span style="color: #ffffff; background-color: #61affe; padding: 4px 8px; border-radius: 3px; font-weight: bold;">GET</span> **/movies/:id**: Get details of a specific movie.
 
   - Response: `{ movie }`
 
-- **POST /movies**: Add a new movie (authenticated users only).
+- <span style="color: #ffffff; background-color: #49cc90; padding: 4px 8px; border-radius: 3px; font-weight: bold;">POST</span> **/movies**: Add a new movie (authenticated users only).
 
   - Request body: `{ title, description, ... }`
   - Response: `{ movie }`
 
-- **PUT /movies/:id**: Edit an existing movie (authenticated users only).
+- <span style="color: #ffffff; background-color: #fca130; padding: 4px 8px; border-radius: 3px; font-weight: bold;">PUT</span> **/movies/:id**: Edit an existing movie (authenticated users only).
 
   - Request body: `{ title, description, ... }`
   - Response: `{ movie }`
 
-- **DELETE /movies/:id**: Delete a movie (authenticated users only).
+- <span style="color: #ffffff; background-color: #f93e3e; padding: 4px 8px; border-radius: 3px; font-weight: bold;">DELETE</span> **/movies/:id**: Delete a movie (authenticated users only).
   - Response: `200 OK`
 
 ---
