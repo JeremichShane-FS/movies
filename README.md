@@ -1,4 +1,4 @@
-<h1 style="background-color: #7B68EE; color: white; padding: 10px; border-radius: 5px;">🎬 Movie Application</h3>
+# 🎬 Movie Application
 
 This is a full-stack movie application that allows users to sign up, log in, view movies, and manage their movie collection. The application is built using React for the front end and a Node.js/Express back end.
 
@@ -9,21 +9,25 @@ This is a full-stack movie application that allows users to sign up, log in, vie
 - **Front End**: Deployed to [Vercel](https://movies-nine-lemon.vercel.app/)
 - **Back End**: Deployed to [Render](https://movies-e6nm.onrender.com)
 
-<h2 style="background-color: #7B68EE; color: white; padding: 10px; border-radius: 5px;">📑 Table of Contents</h2>
+---
 
-- [🌐 Deployment](#-deployment)
-- [✨ Features](#-features)
-- [🛠️ Technologies](#️-technologies)
-  - [⚛️ Front End](#️-front-end)
-  - [🟢 Back End](#-back-end)
-- [⚙️ Setup](#️-setup)
-- [⚛️ Front End](#️-front-end-1)
-  - [🔧 Context](#-context)
-- [🟢 Back End](#-back-end-1)
-  - [🔌 API Endpoints](#-api-endpoints)
-    - [👤 User Endpoints](#-user-endpoints)
-    - [🎬 Movie Endpoints](#-movie-endpoints)
-- [📜 Conclusion](#-conclusion)
+## 📑 Table of Contents
+
+- [🎬 Movie Application](#-movie-application)
+  - [🌐 Deployment](#-deployment)
+  - [📑 Table of Contents](#-table-of-contents)
+  - [✨ Features](#-features)
+  - [🛠️ Technologies](#️-technologies)
+    - [⚛️ Front End](#️-front-end)
+    - [🟢 Back End](#-back-end)
+  - [⚙️ Setup](#️-setup)
+  - [⚛️ Front End](#️-front-end-1)
+    - [🔧 Context](#-context)
+  - [🟢 Back End](#-back-end-1)
+    - [🔌 API Endpoints](#-api-endpoints)
+      - [👤 User Endpoints](#-user-endpoints)
+      - [🎬 Movie Endpoints](#-movie-endpoints)
+  - [📜 Conclusion](#-conclusion)
 
 ---
 
@@ -122,50 +126,47 @@ The back end of the application is built using Node.js and Express. It includes 
 
 ### 🔌 API Endpoints
 
-The base URL for all endpoints is:
-
-- **Development**: <span style="color: #ffffff; background-color: #7B68EE; padding: 4px 8px; border-radius: 3px;"><a href="http://localhost:4000/api/v1" style="color: #ffffff;">http://localhost:4000/api/v1</a></span>
-  <br>
-- **Production**: <span style="color: #ffffff; background-color: #7B68EE; padding: 4px 8px; border-radius: 3px;"><a href="https://movies-e6nm.onrender.com/api/v1" style="color: #ffffff;">https://movies-e6nm.onrender.com/api/v1</a></span>
+- **Development**: http://localhost:4000/api/v1
+- **Production**: https://movies-e6nm.onrender.com/api/v1
 
 <br>
 
 #### 👤 User Endpoints
 
-- <span style="color: #ffffff; background-color: #49cc90; padding: 4px 8px; border-radius: 3px; font-weight: bold;">POST</span> **/signup**: Sign up a new user.
+- **POST /signup**: Sign up a new user.
 
   - Request body: `{ email, password }`
   - Response: `{ token, user }`
 
-- <span style="color: #ffffff; background-color: #49cc90; padding: 4px 8px; border-radius: 3px; font-weight: bold;">POST</span> **/login**: Log in an existing user.
+- **POST /login**: Log in an existing user.
 
   - Request body: `{ email, password }`
   - Response: `{ token, user }`
 
-- <span style="color: #ffffff; background-color: #61affe; padding: 4px 8px; border-radius: 3px; font-weight: bold;">GET</span> **/dashboard**: Access the user dashboard (authenticated users only).
+- **GET /dashboard**: Access the user dashboard (authenticated users only).
   - Response: `{ user, movies }`
 
 #### 🎬 Movie Endpoints
 
-- <span style="color: #ffffff; background-color: #61affe; padding: 4px 8px; border-radius: 3px; font-weight: bold;">GET</span> **/movies**: Get a list of all movies.
+- **GET /movies**: Get a list of all movies.
 
   - Response: `[ { movie1 }, { movie2 }, ... ]`
 
-- <span style="color: #ffffff; background-color: #61affe; padding: 4px 8px; border-radius: 3px; font-weight: bold;">GET</span> **/movies/:id**: Get details of a specific movie.
+- **GET /movies/:id**: Get details of a specific movie.
 
   - Response: `{ movie }`
 
-- <span style="color: #ffffff; background-color: #49cc90; padding: 4px 8px; border-radius: 3px; font-weight: bold;">POST</span> **/movies**: Add a new movie (authenticated users only).
+- **POST /movies**: Add a new movie (authenticated users only).
 
   - Request body: `{ title, description, ... }`
   - Response: `{ movie }`
 
-- <span style="color: #ffffff; background-color: #fca130; padding: 4px 8px; border-radius: 3px; font-weight: bold;">PUT</span> **/movies/:id**: Edit an existing movie (authenticated users only).
+- **PUT /movies/:id**: Edit an existing movie (authenticated users only).
 
   - Request body: `{ title, description, ... }`
   - Response: `{ movie }`
 
-- <span style="color: #ffffff; background-color: #f93e3e; padding: 4px 8px; border-radius: 3px; font-weight: bold;">DELETE</span> **/movies/:id**: Delete a movie (authenticated users only).
+- **DELETE /movies/:id**: Delete a movie (authenticated users only).
   - Response: `200 OK`
 
 ---
