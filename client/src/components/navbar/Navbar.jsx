@@ -5,9 +5,8 @@ import { UserContext } from "../../context/UserContext";
 import "./Navbar.scss";
 
 const Navbar = () => {
-  const { currentUser, logout, setCurrentUser } = useContext(UserContext);
+  const { currentUser, logout } = useContext(UserContext);
   const navigate = useNavigate();
-  console.log(currentUser);
 
   const handleLogout = () => {
     logout();
